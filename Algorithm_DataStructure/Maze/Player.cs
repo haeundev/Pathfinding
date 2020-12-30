@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Maze;
+﻿using System.Collections.Generic;
 
 namespace Maze
 {
@@ -16,8 +14,6 @@ namespace Maze
         public int Y;
     }
 
-
-
     public class Player
     {
         public int PosX { get; private set; }
@@ -25,7 +21,7 @@ namespace Maze
 
         private Board _board;
 
-        enum Dir
+        private enum Dir
         {
             Up = 0,
             Left = 1,
