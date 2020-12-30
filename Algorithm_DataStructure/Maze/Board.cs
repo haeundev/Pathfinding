@@ -9,6 +9,8 @@ namespace Maze
 
         public TileType[,] Tile { get; private set; }
         public int Size { get; private set; }
+        public int DestX { get; private set; }
+        public int DestY { get; private set; }
         private Player _player;
         
         public enum TileType
@@ -24,7 +26,9 @@ namespace Maze
             Size = size;
             _player = player;
             Tile = new TileType[Size, Size];
-
+            DestX = size - 2;
+            DestY = size - 2;
+            
             //GenerateByBinaryTree();
             GenerateBySideWinder();
         }
@@ -145,6 +149,8 @@ namespace Maze
                 {
                     if (y == _player.PosY && x == _player.PosX)
                         Console.ForegroundColor = ConsoleColor.Blue;
+                    else if (y == DestY && x == DestX)
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                     else
                         Console.ForegroundColor = GetTileColor(Tile[x, y]);
                     
